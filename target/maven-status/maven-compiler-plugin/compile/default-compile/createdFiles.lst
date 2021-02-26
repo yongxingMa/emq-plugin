@@ -1,0 +1,14 @@
+com\emq\plugin\config\ReadConfigMap.class
+com\emq\plugin\plugin\emq2ftp.class
+com\emq\plugin\plugin\emq2tsdb$1.class
+com\emq\plugin\App.class
+com\emq\plugin\plugin\emq2mysql.class
+com\emq\plugin\utils\OpenTsDbUtil.class
+com\emq\plugin\plugin\emq2tsdb.class
+com\emq\plugin\plugin\emq2kafka$1.class
+com\emq\plugin\config\FileListener.class
+com\emq\plugin\plugin\emq2kafka.class
+com\emq\plugin\config\FileMonitor.class
+com\emq\plugin\plugin\emq2ftp$1.class
+com\emq\plugin\utils\MysqlConnection.class
+com\emq\plugin\plugin\emq2mysql$1.class

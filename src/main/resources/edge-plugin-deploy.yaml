@@ -1,0 +1,52 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+  creationTimestamp: "2021-01-21T07:47:11Z"
+  generation: 7
+  labels:
+    k8s-app: emq-plugin
+  name: emq-plugin
+  namespace: default
+spec:
+  progressDeadlineSeconds: 2147483647
+  replicas: 1
+  revisionHistoryLimit: 2147483647
+  selector:
+    matchLabels:
+      k8s-app: emq-plugin
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        k8s-app: emq-plugin
+    spec:
+      containers:
+        - image: smart33690/emq-plugin:1.0
+          imagePullPolicy: IfNotPresent
+          name: emq-plugin
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+            - mountPath: /etc/config
+              name: config-volume
+      dnsPolicy: ClusterFirst
+      imagePullSecrets:
+        - name: registry-key
+      nodeSelector:
+        kubernetes.io/hostname: slave1
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+        - configMap:
+            defaultMode: 420
+            name: config-kafka-plugin
+          name: config-volume
